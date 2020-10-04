@@ -9,7 +9,7 @@ text = document.getElementById("text")
 
 var scroe = {
 '晴天':
-`3243 157 1751 - 166 6555432343
+`3243 157 1751 - 166 655 5432343
 刮风这天我试过握着你手
 但偏偏雨渐渐大到我看你不见
 
@@ -32,15 +32,15 @@ var scroe = {
 
 我们的开始 是很长的电影 放映了三年 我票都还留着
 
-12433 345431[45] 431 32211
+12433 345 4315 438 32211
 
 冰上的芭蕾 脑海中还在旋转 望着你 慢慢忘记你
 
-12433 345431 12433 321622
+12433 3454 31 12433 321622
 
 朦胧的时间 我们溜了多远 冰刀画的圈 圈起了谁改变
 
-1[21]433 34543112 4431 432171
+12433 345 4318 4438 432 778
 
 如果再重来 会不会稍显狼狈 爱是不是 不开口才珍贵
 
@@ -165,29 +165,20 @@ for (var i = 1; i <= 5; i++) {
 for (var i = 0; i < 8; i++) {
   buttons[i].index = i;
   buttons[i].onmousedown = function () {
-    //alert(this.index);
-    buttons[this.index].classList.add('white_active')
     audios[this.index].load();
     audios[this.index].play();
-    this.index == shows[current]-1 ? start() : '';
-  };
 
-  buttons[i].onmouseup = function () {
-    buttons[this.index].classList.remove('white_active')
+    if(shows){
+      this.index == shows[current]-1 ? start() : '';
+    }
   };
 }
 for (var i = 0; i < 5; i++) {
   blacks[i].index = i + 8;
   blacks[i].onmousedown = function () {
-    //alert(this.index);
-    blacks[this.index-8].classList.add('black_active')
     audios[this.index].load();
     audios[this.index].play();
     //alert(audios[this.index].src);
-  };
-
-  blacks[i].onmouseup = function () {
-    blacks[this.index-8].classList.remove('black_active')
   };
 }
 
@@ -198,7 +189,10 @@ document.body.onkeydown = function (e) {
     if (e.keyCode == keyCodes[i]) {
       if (i < 8) {
         buttons[i].classList.add('white_active');
-        i == shows[current]-1 ? start() : '';
+        if(shows){
+          i == shows[current]-1 ? start() : '';
+        }
+        
       } else {
         blacks[i-8].classList.add('black_active');
       }

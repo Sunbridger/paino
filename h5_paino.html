@@ -20,6 +20,7 @@
 		height: 100vh;
 		/* 设置鼠标图片样式 */
 		cursor: url(https://cdn.jsdelivr.net/gh/Zevs6/CDN/img/cursor/normal.cur),auto;
+		user-select: none;
 	}
 	/*-------------介绍--------------*/
 	.button{
@@ -101,13 +102,13 @@
 	li:not(:last-child)>div{
 		border-right: none;
 	}
-	.show{
-		background: rgb(255, 97, 97);
-	}
 	/* 当白键按下时的样式 */
-	.white_active{
+	li>div:active{
 		box-shadow: inset 3px -2px  0  #00000036;
 		background: linear-gradient(45deg, rgba(255,255,255,.7), rgba(255,255,255,.5));
+	}
+	.show{
+		background: rgb(255, 97, 97);
 	}
 
 	li>p{
@@ -126,6 +127,9 @@
 		background: linear-gradient(45deg, #4c4c4c, #444444);
 	}
 	/* 当黑键按下时的样式 */
+	li>p:active{
+		box-shadow:inset 3px -5px 0 #2c2c2c;
+	}
 	.black_active{
 		box-shadow:inset 3px -5px 0 #2c2c2c;
 	}
