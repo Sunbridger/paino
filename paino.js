@@ -128,6 +128,7 @@ function start(){
 
   if(current === shows.length-1){
     buttons[shows[shows.length-1]/1 - 1].classList.remove('show');
+    str = ''
     return console.log('演奏结束',current)
   }
 
@@ -168,7 +169,7 @@ for (var i = 0; i < 8; i++) {
     audios[this.index].load();
     audios[this.index].play();
 
-    if(shows){
+    if(str){
       this.index == shows[current]-1 ? start() : '';
     }
   };
@@ -189,7 +190,7 @@ document.body.onkeydown = function (e) {
     if (e.keyCode == keyCodes[i]) {
       if (i < 8) {
         buttons[i].classList.add('white_active');
-        if(shows){
+        if(str){
           i == shows[current]-1 ? start() : '';
         }
         
